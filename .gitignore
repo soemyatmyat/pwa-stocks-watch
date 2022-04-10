@@ -5,8 +5,7 @@
 node_module
 
 #Ignore files related to API keys
-.env
-development.js
+env
 
 #Ignore all text files
 *.txt 
