@@ -1,10 +1,7 @@
 const port = 8081
-
+const axiosKey = 'vyKTz75f6X207sGXz4Ia42kKHGO1V1F39KLo2uOy'
 module.exports = {
-   port: port /*,
-   db_host: "localhost",
-   db_user: "root",
-   db_password: "root",
-   db_database: "SMUX"*/
+   port: port,
+   axiosKey: axiosKey
 }
 

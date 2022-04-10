@@ -1,7 +1,8 @@
 const axios=require('../../config/axios')
 exports.render = async function(req, res) {
 
-    axios.options.url='https://yfapi.net/v6/finance/quote?region=US&lang=en&symbols=APPS,SOFI,RBLX,AVGO,PYPL,AAPL,SE,IIPR,MSFT'
+    //axios.options.url='https://yfapi.net/v6/finance/quote?region=US&lang=en&symbols=APPS,SOFI,RBLX,AVGO,PYPL,AAPL,SE,IIPR,MSFT'
+    axios.options.url='https://yfapi.net/v6/finance/quote?region=US&lang=en&symbols=MSFT,APPS'
     // fetch from yahoo finance api
     let dataQuote=await axios.axios.request(axios.options)
         .then((response)=> {
@@ -11,8 +12,8 @@ exports.render = async function(req, res) {
             console.error(error);
     })
 
-    axios.options.url='https://alpha.financeapi.net/market/get-realtime-prices?symbols=APPS,SOFI,RBLX,AVGO,PYPL,AAPL,SE,IIPR,MSFT'
-
+    //axios.options.url='https://alpha.financeapi.net/market/get-realtime-prices?symbols=APPS,SOFI,RBLX,AVGO,PYPL,AAPL,SE,IIPR,MSFT'
+    axios.options.url='https://alpha.financeapi.net/market/get-realtime-prices?symbols=MSFT,APPS'
     let alphaQuote=await axios.axios.request(axios.options)
     .then((response)=> {
         return response.data['data']

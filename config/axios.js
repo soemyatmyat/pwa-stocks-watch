@@ -1,9 +1,10 @@
+const config=require('./config')//load the configuration from config > config.js
 const axios=require('axios')
 const axios_options={
     method: 'GET',
     url: '',
     headers: {
-        'x-api-key': ''
+        'x-api-key': config.axiosKey
     }
 }
 
