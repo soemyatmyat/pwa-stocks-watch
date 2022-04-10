@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <meta name="description" content="x">
+        <title>Stocks Price Notify</title>
+
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="icon" href="img/icons/favicon.ico" type="image/x-icon"> <!-- 16 x 16 pixels -->  
+        
+        <!-- Open Graph -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="xx>
+        <meta property="og:title" content="">
+        <meta property="og:image" content="img/icons/favicon.ico">
+        <meta property="og:description" content="">
+        <meta property="og:site_name" content="">
+        <!-- Next tags are optional but recommended -->
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <!-- GA -->
+
+        <!-- Twitter cards -->
+
+        <!-- Manifest -->
+        <link rel="manifest" href="manifest.json">
+        <meta name="theme-color" content="#3f51b5">
+
+        <!--- script -->
+        <script nonce="undefined" src="https://cdn.zingchart.com/zingchart.min.js"></script>
+
+    </head>
+    <body>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">Key Statistics</div>
+        </div>
+        <div class="row">
+          <div class="table-responsive">
+            <table class="table table-responsive table-borderless">
+              <thead>
+                <tr class="bg-light">
+                    <th scope="col" width="10%">Symbol</th>
+                    <th scope="col" width="10%">Close</th>
+                    <th scope="col" width="10%">After hours</th>
+                    <th scope="col" width="10%">Ask (Size)</th>
+                    <th scope="col" width="10%">Bid (Size)</th>
+                    <th scope="col" width="10%">50 days Avg</th>
+                    <th scope="col" width="10%">PE<sup>TTM</sup></th>
+                    <th scope="col" width="10%">EPS<sup>TTM</sup></th>
+                    <th scope="col" class="text-end" width="20%"><span>Action</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% for (let i=0; i < alphaQuote.length; i++) {%>
+                  <tr>
+                    <td><%= alphaQuote[i].id %></td>
+                    <td><%= alphaQuote[i].attributes.close %></td>
+                    <td><%= alphaQuote[i].attributes.extendedHoursPrice %></td>
+                    <td><%= dataQuote[i].ask %> <br>(<%= dataQuote[i].askSize %>00)</td>
+                    <td><%= dataQuote[i].bid %> <br>(<%= dataQuote[i].bidSize %>00)</td>
+                    <td><%= (dataQuote[i].fiftyDayAverage==null)? "":(dataQuote[i].fiftyDayAverage).toFixed(2) %></td>
+                    <td><%= (dataQuote[i].trailingPE==null)? "":(dataQuote[i].trailingPE).toFixed(2) %></td>
+                    <td><%= (dataQuote[i].epsTrailingTwelveMonths==null)? "":(dataQuote[i].epsTrailingTwelveMonths).toFixed(2) %></td>
+                    <td>View | Remove </td>
+                  </tr>
+                <% } %>  
+                <!---
+                <% dataQuote.forEach(function(d) { %>
+                <% }); %>
+                -->
+              </tbody>
+            </table>
+          </div>
+        </div>    
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <ul>
+            <li>Ask: the best price somebody will sell shares along with how many aggregate shares are available at that price.</li>
+            <li>Bid: the best price somebody will pay for shares along with how many aggregate shares are available at that price. </li><!--
+            <li>Beta: compares its historical movements to the overall market or a stock index - usually the S&P500. A stock with a beta of 1 is moving at the same volatility as the market. A stock with a beta greater than 1 is moving with greater volatility than the average, and a stock with a beta < 1 has less volatilty than the average.</li>-->
+            <li>TTM: Trailing Twelve Months</li>
+          </ul>
+        </div>
+      </div>
+
+      <script src="js/app.js"></script>
+   
+    </body>
+</html>
