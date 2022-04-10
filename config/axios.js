@@ -3,7 +3,7 @@ const axios_options={
     method: 'GET',
     url: '',
     headers: {
-        'x-api-key': 'vyKTz75f6X207sGXz4Ia42kKHGO1V1F39KLo2uOy'
+        'x-api-key': ''
     }
 }
 
